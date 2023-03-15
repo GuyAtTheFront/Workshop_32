@@ -1,0 +1,27 @@
+<!-- <p>show-tasks works!</p> -->
+<!-- {{ tasks | json }} -->
+
+<div>
+    <h2> Tasks </h2>
+    <div *ngIf="tasks.length < 1">
+        <p>No tasks... NO TASKS!!!</p>
+    </div>
+    <div *ngFor="let task of tasks; let idx = index">
+        <div style="display: inline-block">
+            <table>
+                <tbody (click)="onTaskSelected(idx)">
+                    <tr>
+                        <td colspan="2" style="font-size: xx-large;">{{ task.description }}</td>
+                    </tr>
+                    <tr>
+                        <td class="priority" style="font-size: large; justify-content: left;">{{ task.priority | titlecase }}</td>
+                        <td class="date" style="font-size: large; text-align: right;">{{ task.due | date:'MMM-dd' }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div style="display: inline-block" >
+            <button type="button" (click)="onDeleteTask(idx)">X</button>
+        </div>
+    </div>
+</div>

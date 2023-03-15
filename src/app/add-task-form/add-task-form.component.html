@@ -1,0 +1,45 @@
+<!-- {{ modifiedTask | json }} -->
+<form [formGroup]="todoForm" (ngSubmit)="processForm()">
+    <table>
+        <tr>
+            <td>
+                <label>Description: </label>
+            </td>
+            <td>
+                <input type="text" name="description" formControlName="description">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Priority</label>
+            </td>
+            <td>
+                <div style="display: inline; padding-left: 0px; padding-right:15px;">
+                    <label>High</label>
+                    <input type="radio" name="priority" value="high" formControlName="priority">
+                </div>
+                
+                <div style="display: inline; padding-left: 0px; padding-right:15px;">
+                <label>Medium</label>
+                <input type="radio" name="priority" value="medium" formControlName="priority">
+                </div>
+
+                <div style="display: inline; padding-left: 0px; padding-right:15px;">
+                    <label>Low</label>
+                    <input type="radio" name="priority" value="low" formControlName="priority">
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Due: </label>
+            </td>
+            <td>
+                <input type="date" name="due" formControlName="due">
+            </td>
+        </tr>
+    </table>
+    <button type="button" [disabled]="isModifyDisabled || todoForm.invalid" (click)="onModifyTask()">Modify</button>
+    <button type="submit" [disabled]="isAddDisabled || todoForm.invalid">Add</button>
+</form>
+

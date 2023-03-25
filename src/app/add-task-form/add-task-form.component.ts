@@ -59,7 +59,7 @@ export class AddTaskFormComponent implements OnInit, OnChanges{
   private dateToString(date : Date) {
     // let d = date.toUTCString().split(" ")
     // return "".concat(d[3], "-", d[2], "-", d[1])
-    return "".concat(date.getFullYear().toString(), "-", date.getMonth().toString().padStart(2, "0"), "-", date.getDate().toString())
+    return "".concat(date.getFullYear().toString(), "-", (date.getMonth()+1).toString().padStart(2, "0"), "-", date.getDate().toString())
   }
 
   private setSelectedTask(task: Form) {
